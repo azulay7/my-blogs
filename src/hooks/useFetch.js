@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
-  const [data, setBlogs] = useState([]);
+  const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
@@ -15,7 +15,7 @@ const useFetch = (url) => {
             throw Error("could not fetch data from that resource");
           }
           const blogs = await resp.json();
-          setBlogs(blogs);
+          setData(blogs);
         } catch (error) {
           setError(error.message);
         } finally {

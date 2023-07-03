@@ -83,7 +83,7 @@
   display: block;
 }
 
-.create button {
+button {
   background: #f1356d;
   color: #fff;
   border: 0;
@@ -92,7 +92,7 @@
   cursor: pointer;
 }
 
-.create button disabled{
+button disabled{
   background: gray;
   cursor: not-allowed;
   pointer-events: none;

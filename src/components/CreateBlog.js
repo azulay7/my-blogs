@@ -60,7 +60,7 @@ const CreateBlog = () => {
         {!isPending && <button className="add">Add Blog</button>}
         {isPending && (
           <button disabled className="add">
-            Adding Blog
+            Adding Blog...
           </button>
         )}
       </form>
