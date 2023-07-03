@@ -1,13 +1,32 @@
+import axios from "axios";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const CreateBlog = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
+  const [isPending, setIsPending] = useState(false);
+  const navigate = useNavigate();
+  const submitForm = (e) => {
+    e.preventDefault();
+    const blog = { title, body, author };
+    setIsPending(true);
+    setTimeout(() => {
+      axios
+        .post("http://localhost:8000/blogs", blog)
+        .then(function (response) {
+          navigate("/");
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(setIsPending(false));
+    }, 1000);
+  };
   return (
     <div className="create">
       <h2>Create Blog</h2>
-      <form>
+      <form onSubmit={(e) => submitForm(e)}>
         <label>Blog title:</label>
         <input
           type="text"
@@ -35,10 +54,15 @@ const CreateBlog = () => {
             setAuthor(e.target.value);
           }}
         >
-          <option value="amit">amit</option>
-          <option value="shelly">shelly</option>
+          <option value="amit">Amit</option>
+          <option value="shelly">Shelly</option>
         </select>
-        <button>Add Blog</button>
+        {!isPending && <button className="add">Add Blog</button>}
+        {isPending && (
+          <button disabled className="add">
+            Adding Blog
+          </button>
+        )}
       </form>
     </div>
   );

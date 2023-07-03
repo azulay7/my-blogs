@@ -91,3 +91,9 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.create button disabled{
+  background: gray;
+  cursor: not-allowed;
+  pointer-events: none;
+}
