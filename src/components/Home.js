@@ -8,7 +8,7 @@ const Home = () => {
     data: blogs,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/data");
+  } = useFetch("http://localhost:8000/blogs");
 
   //   const handleDelete = (id) => {
   //     debugger;
