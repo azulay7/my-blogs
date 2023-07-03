@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
   const [data, setBlogs] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
       const fetchData = async () => {
-        setIsLoading(true);
+        setIsPending(true);
         try {
           const resp = await fetch(url);
           if (!resp.ok) {
@@ -19,17 +19,15 @@ const useFetch = (url) => {
         } catch (error) {
           setError(error.message);
         } finally {
-          setIsLoading(false);
+          setIsPending(false);
         }
       };
 
       fetchData();
     }, 1000);
-
-    return () => console.log("clean up");
   }, [url]);
 
-  return { data, isLoading, error };
+  return { data, isPending, error };
 };
 
 export default useFetch;
