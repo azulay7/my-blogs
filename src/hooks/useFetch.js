@@ -25,9 +25,11 @@ const useFetch = (url) => {
 
       fetchData();
     }, 1000);
-  }, []);
 
-  return [data, isLoading, error];
+    return () => console.log("clean up");
+  }, [url]);
+
+  return { data, isLoading, error };
 };
 
 export default useFetch;
