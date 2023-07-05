@@ -13,6 +13,7 @@ export default function ErrorPage() {
           <i>{error.statusText || error.message}</i>
         </div>
       )}
+      {/* <p>That page cannot be found</p> */}
       <Link to="/">Back to the homepage...</Link>
     </div>
   );
