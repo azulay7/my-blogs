@@ -27,7 +27,7 @@ const useFetch = (url) => {
     }, 500);
   }, [url]);
 
-  return { data, isPending, error };
+  return { data, isPending, error, setData };
 };
 
 export default useFetch;

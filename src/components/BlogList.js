@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
-
-const BlogList = ({ blogs, handleDelete }) => {
+import BlogDetails from "./BlogDetails";
+const BlogList = ({ blogs, deleteBlog }) => {
   return (
     <div className="blog-list">
       {blogs.map((blog) => (
         <div className="blog-preview" key={blog.id}>
-          <Link to={`/blogs/${blog.id}`}>
-            <article>
-              <h2>{blog.title}</h2>
-              <p>Writtten by {blog.author}</p>
-            </article>
-          </Link>
+          {/* <Child callback={hi}></Child> */}
+          {/* <Link to={`/blogs/${blog.id}`}> */}
+          <article>
+            <h2>{blog.title}</h2>
+            <p>Writtten by {blog.author}</p>
+          </article>
+          <BlogDetails blog={blog} deleteBlog={deleteBlog}></BlogDetails>
+          {/* </Link> */}
         </div>
       ))}
     </div>
