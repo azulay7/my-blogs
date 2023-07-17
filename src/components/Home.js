@@ -16,13 +16,15 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="controller">
+      {/* <div className="controller">
         <button>Save</button>
-      </div>
+      </div> */}
 
       {isPending && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {blogs && <BlogList blogs={blogs} deleteBlog={deleteBlog} />}
+      {blogs && (
+        <BlogList class="blog-list" blogs={blogs} deleteBlog={deleteBlog} />
+      )}
     </div>
   );
 };

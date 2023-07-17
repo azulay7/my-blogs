@@ -1,27 +1,30 @@
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const CreateBlog = () => {
+const CreateBlog = ({ addBlog }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
   const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
+
   const submitForm = (e) => {
     e.preventDefault();
     const blog = { title, body, author };
-    setIsPending(true);
-    setTimeout(() => {
-      axios
-        .post("http://localhost:8000/blogs", blog)
-        .then(function (response) {
-          navigate("/");
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .finally(setIsPending(false));
-    }, 1000);
+    addBlog(blog);
+    navigate("/");
+    // setIsPending(true);
+    // setTimeout(() => {
+    //   axios
+    //     .post("http://localhost:8000/blogs", blog)
+    //     .then(function (response) {
+    //       navigate("/");
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     })
+    //     .finally(setIsPending(false));
+    // }, 1000);
   };
   return (
     <div className="create">
@@ -46,23 +49,20 @@ const CreateBlog = () => {
             setBody(e.target.value);
           }}
         />
-
-        <label>Blog Author:</label>
-        <select
+        <input
+          type="text"
+          required
           value={author}
           onChange={(e) => {
             setAuthor(e.target.value);
           }}
-        >
-          <option value="amit">Amit</option>
-          <option value="shelly">Shelly</option>
-        </select>
-        {!isPending && <button className="add">Add Blog</button>}
+        />
+        {/* {!isPending && <button className="add">Add Blog</button>}
         {isPending && (
           <button disabled className="add">
             Adding Blog...
           </button>
-        )}
+        )} */}
       </form>
     </div>
   );

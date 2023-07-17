@@ -6,11 +6,14 @@
   font-family: "Quicksand";
   color: #333;
 }
+.App{
+  margin: 0 20rem;
+  max-width: 1280px;
+}
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -29,13 +32,21 @@
   color: #f1356d;
 }
 .content {
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 40px auto;
-  padding: 20px;
+  /* padding: 20px; */
+}
+.blog-list{
+  display: flex;
+  flex-wrap: wrap;
+    width: 100%;
+    flex-basis: 100%;
 }
 
 /* blog previews / list */
 .blog-preview {
+  /* flex-basis: 100%; */
+  min-width: 20rem;
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;

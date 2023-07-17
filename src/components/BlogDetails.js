@@ -28,7 +28,7 @@ const BlogDetails = ({ blog, deleteBlog }) => {
         <div className="content">
           {/* <h2>{blog.title}</h2> */}
           <p>{blog.body}</p>
-          <button onClick={() => deleteBlog(blog)}>Delete</button>
+          {/* <button onClick={() => deleteBlog(blog)}>Delete</button> */}
         </div>
       )}
     </div>
