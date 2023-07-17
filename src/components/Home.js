@@ -9,10 +9,10 @@ const Home = () => {
 
   const { data: blogs, isPending, error, setData } = useFetch(URI);
 
-  const deleteBlog = useCallback((blogToDelete) => {
-    const newBlogs = blogs.filter((blog) => blogToDelete.id != blog.id);
-    setData(newBlogs);
-  });
+  // const deleteBlog = useCallback((blogToDelete) => {
+  //   const newBlogs = blogs.filter((blog) => blogToDelete.id != blog.id);
+  //   setData(newBlogs);
+  // });
 
   return (
     <div className="home">
@@ -22,9 +22,7 @@ const Home = () => {
 
       {isPending && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {blogs && (
-        <BlogList class="blog-list" blogs={blogs} deleteBlog={deleteBlog} />
-      )}
+      {blogs && <BlogList class="blog-list" blogs={blogs} />}
     </div>
   );
 };

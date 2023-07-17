@@ -38,6 +38,7 @@
 }
 .blog-list{
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
     width: 100%;
     flex-basis: 100%;
@@ -50,6 +51,9 @@
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
+}
+a{
+  text-decoration: none;
 }
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
